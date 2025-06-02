@@ -13,7 +13,12 @@ digraph {
     rankdir = "LR";
     node [shape=box];
 
-    "     コンピュータリテラシー    " -> "   プログラミングI  ";
+    "     コンピュータリテラシー    " -> "   プログラミングI  " -> "　プログラミングⅡ　 ";
+    "     基礎ゼミ   " -> "   　プログラミング基礎I　  " -> "　　プログラミング基礎Ⅱ　　 ";
+    "     情報工学概論   " -> "   　計算機工学　  " -> "　　論理回路　　 ";
+    "     情報工学概論   " -> "   　プログラミング基礎I　  ";
+    "     コンピュータリテラシー    " -> "   　プログラミング基礎I　  ";
+
 }
 ```
 
@@ -27,6 +32,25 @@ digraph {
 @startwbs ex02
 * 拓殖大学
 ** 商学部
+*** 経営学科
+*** 国際ビジネス学科
+*** 会計学科
+** 政経学部
+*** 法律政治学科
+*** 経済学科
+*** 社会安全学科
+** 外国語学部
+*** 英米語学科
+*** 中国語学科
+*** スペイン語学科
+*** 国際日本語学科
+** 工学部
+*** 機械システム学科
+*** 電子システム学科
+*** 情報工学科
+*** デザイン学科
+** 国際学部
+*** 国際学科
 @endwbs
 ```
 
@@ -39,11 +63,26 @@ digraph {
 ```plantUML
 @startuml ex03
 left to right direction
-actor 学生 as student
-rectangle {
-    usecase "課題の受領" as uc2
+actor "学生" as student
+actor "教員" as faculty
+rectangle  {
+    usecase "提出課題の採点" as uc1
+    usecase "リモートリポジトリにpush" as uc2
+    usecase "修正のコミット" as uc3
+    usecase "修正を上げる" as uc4
+    usecase "課題ファイルの修正" as uc5
+    usecase "リポジトリのクローン" as uc6
+    usecase "課題の受領" as uc7
+    usecase "課題の登録" as uc8
 }
+uc1 <-- faculty
 student --> uc2
+student --> uc3
+student --> uc4
+student --> uc5
+student --> uc6
+student --> uc7
+uc8 <-- faculty
 @enduml
 ```
 
@@ -53,12 +92,29 @@ student --> uc2
 独自の図解を作成せよ．対象は自由に決めてよいが，
 誰かのコピーにならないように留意せよ．
 
-```
+```plantUML
+@startwbs wbs04
+* 東日本
+** 北海道地方
+*** 北海道
+** 東北地方
+*** 青森
+*** 秋田
+*** 山形
+** 関東地方
+*** 茨城
+*** 栃木
+*** 東京
+** 北陸地方
+*** 新潟
+*** 石川
+*** 福井
+@endwbs
 ```
 
 
 ## チェック
-- [ ] 課題 3.1 有向グラフ
-- [ ] 課題 3.2 WBS
-- [ ] 課題 3.3 ユースケース図
-- [ ] 課題 3.4 オリジナルの図解
+- [x] 課題 3.1 有向グラフ
+- [x] 課題 3.2 WBS
+- [x] 課題 3.3 ユースケース図
+- [x] 課題 3.4 オリジナルの図解
